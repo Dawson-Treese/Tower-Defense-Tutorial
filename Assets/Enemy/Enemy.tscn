@@ -35,13 +35,15 @@ animations = [ {
 height = 0.0
 
 [node name="Enemy" type="PathFollow2D"]
+rotate = false
+loop = false
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
 frames = SubResource( 7 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
