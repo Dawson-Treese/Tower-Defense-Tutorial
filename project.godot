@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "TurnQueue",
 "language": "GDScript",
-"path": "res://TurnQueue.gd"
+"path": "res://Turn Queue/TurnQueue.gd"
 } ]
 _global_script_class_icons={
 "TurnQueue": ""
