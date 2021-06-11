@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var tower = load("res://Assets/Enemy/Enemy.tscn")
+var tower = load("res://Assets/Tower/Tower.tscn")
 var enemy = load("res://Assets/Enemy/Enemy.tscn")
 var instance
 
@@ -21,7 +21,14 @@ func _physics_process(delta):
 
 
 func _on_MobTimer_timeout():
-	pass # Replace with function body.
+	instance = enemy.instance()
+	$Path2D.add_child(instance)
+	mobs_left -= 1
+	if mobs_left <= 0:
+		$MobTimer.stop()
+		wave += 1
+		if wave < len(wave_mobs):
+			$WaveTimer.start()
 
 
 func _on_WaveTimer_timeout():
@@ -34,3 +41,13 @@ func _on_TextureButton_pressed():
 		instance = tower.instance()
 		add_child(instance)
 		building = true
+
+func tower_built():
+	building = false
+	cash -= 25
+	
+	
+func add_cash(num):
+	cash += num
+	
+
