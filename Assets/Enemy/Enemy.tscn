@@ -34,19 +34,18 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=7]
 height = 0.0
 
-[node name="Enemy" type="PathFollow2D" groups=[
-"enemy",
-]]
+[node name="Enemy" type="PathFollow2D"]
 rotate = false
 loop = false
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
-frame = 4
 playing = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"enemy",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false

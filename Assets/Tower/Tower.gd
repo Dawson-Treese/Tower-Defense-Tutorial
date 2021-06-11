@@ -48,8 +48,13 @@ func _physics_process(delta):
 			if current_target:
 				$ShootTimer.start()
 		else:
-			target_position = current_target.get_ref().get_global_transform().origin
-			$Base.rotation = (target_position - position).angle() - deg2rad(90)
+			if (!current_target.get_ref()):
+				current_target = null
+				$ShootTimer.stop()
+			else:
+				target_position = current_target.get_ref().get_global_transform().origin
+				$Base.rotation = (target_position - position).angle() + deg2rad(90)
+	
 
 
 
@@ -86,7 +91,7 @@ func _on_Aggro_area_entered(area):
 func _on_Aggro_area_exited(area):
 	if area.is_in_group("enemy"):
 		enemy_array.erase(area.get_parent())
-		if area.get_parent() == current_target.get_ref():
+		if current_target != null and area.get_parent() == current_target.get_ref():
 			current_target = null
 			$ShootTimer.stop()
 
@@ -95,7 +100,7 @@ func _on_ShootTimer_timeout():
 	if current_target.get_ref():
 		instance = shot.instance()
 		instance.set_target(current_target.get_ref())
-		instance.position = $ShotPosition.get_global_transform().origin
+		instance.position = $Base/ShotPosition.get_global_transform().origin
 		get_parent().add_child(instance)
 
 
