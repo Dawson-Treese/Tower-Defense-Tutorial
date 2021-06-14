@@ -2,7 +2,7 @@ extends PathFollow2D
 
 
 var speed = 60
-var hp = 10
+var hp = 5
 
 
 

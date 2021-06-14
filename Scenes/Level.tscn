@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Tower/Tower.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/turtle.png" type="Texture" id=5]
 [ext_resource path="res://Assets/UI/CashLabel/CashLabel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Minecraft.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Fonts/Minecraft.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
